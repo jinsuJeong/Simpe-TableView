@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Simple TableView
 //
-//  Created by 김종현 on 2018. 4. 30..
-//  Copyright © 2018년 김종현. All rights reserved.
+//  Created by 정준수 on 2018. 4. 30..
+//  Copyright © 2018년 정준수. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var myTableView: UITableView!
-    var animals = ["Cow", "Pig", "Dog", "Rabbit", "Bird"]
-    var year = ["3", "5", "2", "4", "5"]
+    var animals = ["ONE", "TWO", "THREE", "FOUR", "FIVE"]
+    var number = ["1", "2", "3", "4", "5"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "Cell"
+        let identifier = "sell"
         let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         // cell에 image 넣기
@@ -37,10 +37,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.imageView?.image = myImage
         
         // cell에 text 넣기
-        cell.textLabel?.text = animals[indexPath.row]
+        cell.textLabel?.text = number[indexPath.row]
+        cell.detailTextLabel?.text="section= \(indexPath.section) row=\(indexPath.row)"
         
         // cell에 detailText 넣기
-        cell.detailTextLabel?.text = year[indexPath.row]
+        //cell.detailTextLabel?.text = animals[indexPath.row]
         
         return cell
     }
